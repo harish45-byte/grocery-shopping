@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Furrow &mdash; fresh groceries, delivered</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <span class="brand-mark">&#127811;</span>
+    <span class="brand-name">Furrow</span>
+  </div>
+
+  <div class="search-wrap">
+    <input id="searchInput" type="search" placeholder="Search for tomatoes, milk, rice…" autocomplete="off" />
+  </div>
+
+  <button id="cartToggle" class="cart-toggle" aria-label="Open cart">
+    <span class="cart-toggle-icon">&#127907;</span>
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
+</header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <h1>The week's produce,<br>picked this morning.</h1>
+    <p>Furrow sources directly from nearby farms and local dairies, then gets it to your door before the vegetables know they've left the ground.</p>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">26</span>
+      <span class="stat-label">items in stock today</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">7</span>
+      <span class="stat-label">categories to browse</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">45 min</span>
+      <span class="stat-label">average delivery window</span>
+    </div>
+  </div>
+</section>
+
+<main class="layout">
+  <aside class="category-rail" id="categoryRail">
+    <h2>Categories</h2>
+    <ul id="categoryList"></ul>
+  </aside>
+
+  <section class="product-area">
+    <div class="product-area-head">
+      <h2 id="sectionTitle">All produce</h2>
+      <span id="resultCount" class="result-count"></span>
+    </div>
+    <div class="product-grid" id="productGrid">
+      <p class="loading">Loading the shelves…</p>
+    </div>
+  </section>
+</main>
+
+<div id="cartOverlay" class="cart-overlay"></div>
+
+<aside id="cartDrawer" class="cart-drawer" aria-hidden="true">
+  <div class="cart-drawer-head">
+    <h2>Your basket</h2>
+    <button id="cartClose" class="icon-btn" aria-label="Close cart">&times;</button>
+  </div>
+
+  <div id="cartItems" class="cart-items">
+    <p class="cart-empty">Your basket is empty. Add something fresh.</p>
+  </div>
+
+  <div class="cart-summary">
+    <div class="cart-summary-row">
+      <span>Subtotal</span>
+      <span id="cartSubtotal">&#8377;0</span>
+    </div>
+    <button id="checkoutBtn" class="btn-primary" disabled>Checkout</button>
+  </div>
+</aside>
+
+<div id="checkoutOverlay" class="cart-overlay"></div>
+
+<aside id="checkoutPanel" class="checkout-panel" aria-hidden="true">
+  <div class="cart-drawer-head">
+    <h2>Delivery details</h2>
+    <button id="checkoutClose" class="icon-btn" aria-label="Close checkout">&times;</button>
+  </div>
+
+  <form id="checkoutForm" class="checkout-form">
+    <label>
+      Full name
+      <input type="text" id="customerName" required placeholder="Ada Lovelace" />
+    </label>
+    <label>
+      Delivery address
+      <textarea id="deliveryAddress" required rows="3" placeholder="12 Orchard Lane, Springfield"></textarea>
+    </label>
+    <div class="checkout-total-row">
+      <span>Order total</span>
+      <span id="checkoutTotal">&#8377;0</span>
+    </div>
+    <button type="submit" class="btn-primary">Place order</button>
+  </form>
+
+  <div id="orderConfirmation" class="order-confirmation" hidden>
+    <p class="confirmation-mark">&#10003;</p>
+    <h3>Order placed</h3>
+    <p id="confirmationDetail"></p>
+    <button id="continueShoppingBtn" class="btn-secondary">Continue shopping</button>
+  </div>
+</aside>
+
+<footer class="site-footer">
+  <p>Furrow &mdash; a demo grocery application built with Spring Boot, JPA, H2 and vanilla JavaScript.</p>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
